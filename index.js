@@ -19,10 +19,11 @@ const MIRROR_LIST = Object.keys(MIRROR_DICT);
 program
   .version(pkg.version)
   .allowUnknownOption()
-  .option('-cn --cnpm', '使用cnpmjs镜像,默认')
-  .option('-fa --fastgit', '使用fastgit镜像')
-  .option('-ge --gitee', '使用gitee镜像')
-  .option('-gc --gitclone', '使用gitclone镜像')
+  .option('-cn --cnpm', 'cnpmjs镜像(默认)')
+  .option('-fa --fastgit', 'fastgit镜像')
+  .option('-ge --gitee', 'gitee镜像')
+  .option('-gc --gitclone', 'gitclone镜像')
+  .option('-gh --github', '使用原始github镜像')
   .parse();
 
 /**
@@ -58,8 +59,8 @@ function convertCmd(originCmd, usedMirror) {
  * @param {array} mirrorList 
  */
 function getUsedMirror(program, mirrorList) {
-  let index = mirrorList.findIndex(function(key) {
-    return key !== 'github' && program[key];
+  const index = mirrorList.findIndex(function(key) {
+    return program[key];
   });
 
   return index >= 0 ? mirrorList[index] : '';
@@ -72,11 +73,13 @@ let usedMirror = '';
 // only when repo was clone from github needs to change mirror
 // two points: only github, only clone
 if (GH_TEST_REG.test(cmd) && /clone/.test(cmd)) {
-  usedMirror = getUsedMirror(program, MIRROR_LIST) || 'github';
+  usedMirror = getUsedMirror(program, MIRROR_LIST) || 'cnpm';
   cmd = convertCmd(cmd, usedMirror);
   // console.log('更换镜像后的命令: ', cmd);
 }
 
-cmd = 'git ' + cmd.replace(/(\s|^)clone\s/, ' clone --progress ')
-// args[0] = repoUrl;
+cmd = 'git ' + cmd;
+cmd = cmd.replace(/\sclone\s/, ' clone --progress ');
+// console.log('cmd', program.cnpm, program.fastgit, program.gitclone, program.gitee, program.github,);
+
 shelljs.exec(cmd);
