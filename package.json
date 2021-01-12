@@ -1,0 +1,32 @@
+{
+  "name": "mclone",
+  "version": "1.0.0",
+  "description": "A command line tool to speed up GitHub cloning.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Github",
+    "github",
+    "github clone",
+    "clone",
+    "加速",
+    "克隆",
+    "克隆加速",
+    "拷贝加速",
+    "wogit",
+    "git clone"
+  ],
+  "bin": {
+    "wogit": "./index.js"
+  },
+  "author": "mayueyue",
+  "license": "MIT",
+  "devDependencies": {
+    "commander": "^6.2.1"
+  },
+  "dependencies": {
+    "shelljs": "^0.8.4"
+  }
+}
