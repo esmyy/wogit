@@ -8,32 +8,22 @@ const pkg = require(path.resolve(__dirname, 'package.json'));
 const GH_ADDR_MATCH_REG = /(https?:\/\/github\.com)(\/.*\/)+([^\/]+\.git)/;
 const GH_TEST_REG = /https?:\/\/github\.com\/.*.git/;
 const MIRROR_DICT = {
-  cnpm: 'https://github.com.cnpmjs.org/',
-  gitee: 'https://gitee.com/mirrors/',
-  gitclone: 'https://gitclone.com/github.com/',
-  fastgit: 'https://hub.fastgit.org/',
-  github: 'https://github.com/',
+  cnpm: 'https://github.com.cnpmjs.org',
+  gitee: 'https://gitee.com/mirrors',
+  gitclone: 'https://gitclone.com/github.com',
+  fastgit: 'https://hub.fastgit.org',
+  github: 'https://github.com',
 };
 const MIRROR_LIST = Object.keys(MIRROR_DICT);
 
 program
   .version(pkg.version)
   .allowUnknownOption()
-  .option('-cnpm', '使用cnpmjs镜像,默认')
-  .option('-fastgit', '使用fastgit镜像')
-  .option('-gitee', '使用gitee镜像')
-  .option('-gitclone', '使用gitclone镜像')
+  .option('-cn --cnpm', '使用cnpmjs镜像,默认')
+  .option('-fa --fastgit', '使用fastgit镜像')
+  .option('-ge --gitee', '使用gitee镜像')
+  .option('-gc --gitclone', '使用gitclone镜像')
   .parse();
-
-/**
- * @param {string} cmd
- * e.g., https://github.com/chalk/chalk.git
- * return repo's name
- */
-function getRepoName(cmd) {
-  const matched = cmd.match(/[^\/]+\.git(\s|$)/)[0];
-  return Array.isArray(matched) ? matched[0] : '';
-}
 
 /**
  * convert a git command to new mirror
@@ -84,9 +74,9 @@ let usedMirror = '';
 if (GH_TEST_REG.test(cmd) && /clone/.test(cmd)) {
   usedMirror = getUsedMirror(program, MIRROR_LIST) || 'github';
   cmd = convertCmd(cmd, usedMirror);
-  console.log('镜像:', usedMirror);
+  // console.log('更换镜像后的命令: ', cmd);
 }
 
+cmd = 'git ' + cmd.replace(/(\s|^)clone\s/, ' clone --progress ')
 // args[0] = repoUrl;
-console.log('sste', cmd, usedMirror);
-// shelljs.exec('git clone --progress ' + args.join(' '));
+shelljs.exec(cmd);
