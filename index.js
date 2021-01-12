@@ -72,7 +72,7 @@ let usedMirror = '';
 
 // only when repo was clone from github needs to change mirror
 // two points: only github, only clone
-if (GH_TEST_REG.test(cmd) && /clone/.test(cmd)) {
+if (/(^|\s)clone\s/.test(cmd) && GH_TEST_REG.test(cmd)) {
   usedMirror = getUsedMirror(program, MIRROR_LIST) || 'cnpm';
   cmd = convertCmd(cmd, usedMirror);
   // console.log('更换镜像后的命令: ', cmd);
