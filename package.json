@@ -1,5 +1,5 @@
 {
-  "name": "mclone",
+  "name": "wogit",
   "version": "1.0.0",
   "description": "A command line tool to speed up GitHub cloning.",
   "main": "index.js",
@@ -7,16 +7,20 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
+    "git",
     "Github",
-    "github",
-    "github clone",
+    "git clone",
+    "git clone加速",
+    "git clone镜像",
+    "国内github clone加速",
+    "速度慢",
+    "wogit",
     "clone",
-    "加速",
-    "克隆",
     "克隆加速",
     "拷贝加速",
-    "wogit",
-    "git clone"
+    "镜像",
+    "加速",
+    "克隆"
   ],
   "bin": {
     "wogit": "./index.js"
