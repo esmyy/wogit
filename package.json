@@ -12,6 +12,7 @@
     "git clone",
     "git clone加速",
     "git clone镜像",
+    "git clone tow slow",
     "国内github clone加速",
     "速度慢",
     "wogit",
@@ -28,9 +29,13 @@
   "author": "mayueyue",
   "license": "MIT",
   "devDependencies": {
-    "commander": "^6.2.1"
   },
   "dependencies": {
-    "shelljs": "^0.8.4"
+    "shelljs": "^0.8.4",
+    "commander": "^6.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mayueyue213/wogit.git"
   }
 }
