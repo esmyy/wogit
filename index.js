@@ -8,10 +8,10 @@ const pkg = require(path.resolve(__dirname, 'package.json'));
 const GH_ADDR_MATCH_REG = /(https?:\/\/github\.com)(\/.*\/)+([^\/]+\.git)/;
 const GH_TEST_REG = /https?:\/\/github\.com\/.*.git/;
 const MIRROR_DICT = {
-  cnpm: 'https://github.com.cnpmjs.org',
+//  cnpm: 'https://github.com.cnpmjs.org',
   gitee: 'https://gitee.com/mirrors',
   gitclone: 'https://gitclone.com/github.com',
-  fastgit: 'https://hub.fastgit.org',
+  fastgit: 'https://hub.fastgit.xyz',
   github: 'https://github.com',
 };
 const MIRROR_LIST = Object.keys(MIRROR_DICT);
@@ -19,7 +19,7 @@ const MIRROR_LIST = Object.keys(MIRROR_DICT);
 program
   .version(pkg.version)
   .allowUnknownOption()
-  .option('-cn --cnpm', 'cnpmjs镜像(默认)')
+  //.option('-cn --cnpm', 'cnpmjs镜像(默认)')
   .option('-fa --fastgit', 'fastgit镜像')
   .option('-ge --gitee', 'gitee镜像')
   .option('-gc --gitclone', 'gitclone镜像')
