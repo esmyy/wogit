@@ -1,14 +1,14 @@
 # wogit
 
-git clone 加速命令行工具，使用加速镜像解决从 github 克隆速度慢的问题。
+A command line tool to speed up cloning from GitHub.
 
-## 安装
+## install
 
 ```bash
 npm i wogit -g
 ```
 
-## 使用
+## usage
 
 ```bash
 # from
@@ -17,13 +17,13 @@ git clone https://github.com/chalk/chalk.git
 # to
 wogit clone https://github.com/chalk/chalk.git
 
-# 其他参数不变，跟使用git一样，如
+# keep other args, same as git
 wogit clone https://github.com/chalk/chalk.git --depth=1
 ```
 
-## 镜像切换
+## switch mirror
 
-使用 `wogit -h` 查看镜像切换的选项
+use `wogit -h` to list available mirrors
 
 ```sh
 ➜ wogit -h
@@ -31,12 +31,12 @@ Usage: wogit [options]
 
 Options:
   -V, --version   output the version number
-  -ge --gitee     gitee镜像
-  -gc --gitclone  gitclone镜像
+  -ge --gitee     gitee mirror
+  -gc --gitclone  gitclone mirror
   -h, --help      display help for command
 ```
 
-比如
+for example
 
 ```bash
 wogit clone https://github.com/chalk/chalk.git -ge

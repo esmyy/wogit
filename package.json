@@ -1,41 +1,34 @@
 {
-  "name": "wogit",
-  "version": "1.0.1",
-  "description": "A command line tool to speed up GitHub cloning.",
+  "name": "@esmyy/wogit",
+  "version": "1.1.0",
+  "description": "A command line tool to speed up cloning from GitHub.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "git",
-    "Github",
+    "GitHub",
     "git clone",
-    "git clone加速",
-    "git clone镜像",
-    "git clone tow slow",
-    "国内github clone加速",
-    "速度慢",
+    "git clone speedup",
+    "git clone mirror",
+    "git clone too slow",
     "wogit",
     "clone",
-    "克隆加速",
-    "拷贝加速",
-    "镜像",
-    "加速",
-    "克隆"
+    "clone speed up"
   ],
   "bin": {
     "wogit": "./index.js"
   },
-  "author": "mayueyue",
+  "author": "esmyy",
   "license": "MIT",
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "dependencies": {
     "shelljs": "^0.8.4",
     "commander": "^6.2.1"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/mayueyue213/wogit.git"
+    "url": "git://github.com/esmyy/wogit.git"
   }
 }

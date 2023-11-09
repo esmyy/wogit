@@ -11,6 +11,7 @@ const MIRROR_DICT = {
   gitee: "https://gitee.com/mirrors/",
   gitclone: "https://gitclone.com/github.com",
 };
+
 const MIRROR_LIST = Object.keys(MIRROR_DICT);
 
 program
@@ -76,6 +77,7 @@ let usedMirror = "";
 // two points: only github, only clone
 if (/(^|\s)clone\s/.test(cmd) && GH_TEST_REG.test(cmd)) {
   usedMirror = getUsedMirror(program, MIRROR_LIST) || "gitclone";
+  console.log("usedMirror");
   cmd = convertCmd(cmd, usedMirror);
 }
 
