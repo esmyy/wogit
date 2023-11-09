@@ -1,6 +1,6 @@
 {
   "name": "@esmyy/wogit",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A command line tool to speed up cloning from GitHub.",
   "main": "index.js",
   "scripts": {
