@@ -5,7 +5,7 @@ A command line tool to speed up cloning from GitHub.
 ## install
 
 ```bash
-npm i wogit -g
+npm i @esmyy/wogit -g
 ```
 
 ## usage
